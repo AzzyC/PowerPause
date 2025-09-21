@@ -5,7 +5,6 @@ import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.app.Service
 import android.content.Intent
-import android.os.Build
 import android.os.IBinder
 import androidx.core.app.NotificationCompat
 import kotlinx.coroutines.*
@@ -19,15 +18,13 @@ class ChargeControlService : Service() {
         super.onCreate()
         val channelId = "powerpause_channel"
 
-        // Create notification channel for Android O+
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            val channel = NotificationChannel(
-                channelId,
-                "PowerPause Service",
-                NotificationManager.IMPORTANCE_LOW
-            )
-            getSystemService(NotificationManager::class.java).createNotificationChannel(channel)
-        }
+        // Create notification channel
+        val channel = NotificationChannel(
+            channelId,
+            "PowerPause Service",
+            NotificationManager.IMPORTANCE_LOW
+        )
+        getSystemService(NotificationManager::class.java).createNotificationChannel(channel)
 
         // Create persistent notification for foreground service
         val notification: Notification = NotificationCompat.Builder(this, channelId)
