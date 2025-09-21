@@ -1,4 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.azzy.powerpause">
 
     <!-- Permission needed for foreground service -->
@@ -23,7 +24,9 @@
         <service
             android:name=".ChargeControlService"
             android:enabled="true"
-            android:exported="false" />
+            android:exported="false"
+            android:foregroundServiceType="dataSync"
+            tools:ignore="ForegroundServicePermission" />
 
     </application>
 

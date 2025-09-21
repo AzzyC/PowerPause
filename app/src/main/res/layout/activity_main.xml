@@ -5,15 +5,17 @@
     android:orientation="vertical"
     android:padding="24dp">
 
-    <!-- Switch to toggle indiscriminate mode -->
-    <Switch
-        android:id="@+id/switch_indiscriminate"
+    <!-- MaterialSwitch to toggle Bypass Charge Mode -->
+    <!-- When ON, the app will stop charging regardless of battery % -->
+    <com.google.android.material.switchmaterial.SwitchMaterial
+        android:id="@+id/switch_bypass_charge"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Indiscriminate Mode"
+        android:text="Bypass Charge Mode"
         android:checked="false" />
 
-    <!-- EditText to set battery limit -->
+    <!-- EditText to set battery limit % -->
+    <!-- Disabled when Bypass Charge Mode is ON -->
     <EditText
         android:id="@+id/edit_battery_limit"
         android:layout_width="match_parent"
