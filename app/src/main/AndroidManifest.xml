@@ -1,0 +1,30 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.azzy.powerpause">
+
+    <!-- Permission needed for foreground service -->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+
+    <application
+        android:allowBackup="true"
+        android:label="PowerPause"
+        android:theme="@style/Theme.PowerPause">
+
+        <!-- Main launcher activity -->
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+
+        <!-- Foreground service -->
+        <service
+            android:name=".ChargeControlService"
+            android:enabled="true"
+            android:exported="false" />
+
+    </application>
+
+</manifest>
